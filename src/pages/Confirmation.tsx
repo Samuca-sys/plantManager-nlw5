@@ -2,9 +2,8 @@ import React from 'react';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
 import { Button } from '../components/Button';
-import colors from '../styles/colors';
 
-import color from '../styles/colors';
+import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 
 export function Confirmation() {
@@ -19,7 +18,7 @@ export function Confirmation() {
 					Agora vamos começar a cuidas das suas plantinhas com muito cuidado.
 				</Text>
 				<View style={styles.footer}>
-					<Button />
+					<Button title='Começar' />
 				</View>
 			</View>
 		</SafeAreaView>
