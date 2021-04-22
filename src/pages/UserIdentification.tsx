@@ -16,7 +16,6 @@ import { Button } from '../components/Button';
 
 import fonts from '../styles/fonts';
 import colors from '../styles/colors';
-import content from '*.png';
 
 export function UserIdentification() {
 	const [isFocused, setIsFocused] = useState(false);
