@@ -10,9 +10,11 @@ import {
 	TouchableWithoutFeedback,
 	Platform,
 	Keyboard,
+	Alert,
 } from 'react-native';
 
 import { Button } from '../components/Button';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import fonts from '../styles/fonts';
 import colors from '../styles/colors';
@@ -37,7 +39,12 @@ export function UserIdentification() {
 		setName(value);
 	}
 
-	function handleSubmit() {
+	async function handleSubmit() {
+		if (!name) {
+			return Alert.alert('Me diz como te chamar 🙏');
+		}
+		//defines a item to be stored and returns a promise (async function)
+		await AsyncStorage.setItem('@plantmanager:user', name);
 		navigation.navigate('Confirmation');
 	}
 

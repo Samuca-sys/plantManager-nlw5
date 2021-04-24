@@ -64,8 +64,8 @@ export function PlantSelect() {
 			params: {
 				_sort: 'name',
 				_order: 'asc',
-				_page: `${page}`,
-				_limit: 4,
+				_page: page,
+				_limit: 8,
 			},
 		});
 
