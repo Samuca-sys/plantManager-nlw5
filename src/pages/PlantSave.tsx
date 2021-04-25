@@ -20,7 +20,7 @@ import { useRoute } from '@react-navigation/core';
 import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
 
 import { format, isBefore } from 'date-fns';
-import { PlantProps } from '../libs/strorage';
+import { PlantProps, savePlant } from '../libs/strorage';
 
 import { Button } from '../components/Button';
 
@@ -59,6 +59,17 @@ export function PlantSave() {
 		setShowDatePicker((oldState) => !oldState);
 	}
 
+	async function handleSave() {
+		try {
+			await savePlant({
+				...plant,
+				dateTimeNotification: selectedDateTime,
+			});
+		} catch {
+			Alert.alert('Não foi possível salvar 😥');
+		}
+	}
+
 	return (
 		<ScrollView showsVerticalScrollIndicator={false}>
 			<View style={styles.container}>
@@ -75,7 +86,7 @@ export function PlantSave() {
 					<Text style={styles.alertLabel}>
 						Escolha o melhor horário para ser lembrado:
 					</Text>
-					{}
+
 					{isIphoneSE() && <Text style={styles.scrollingEmoji}>👇</Text>}
 					{showDatePicker && (
 						<DateTimePicker
@@ -96,7 +107,7 @@ export function PlantSave() {
 						</TouchableOpacity>
 					)}
 
-					<Button title='Cadastrar planta' onPress={() => {}} />
+					<Button title='Cadastrar planta' onPress={handleSave} />
 				</View>
 			</View>
 		</ScrollView>
