@@ -20,7 +20,7 @@ import { useNavigation, useRoute } from '@react-navigation/core';
 import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
 
 import { format, isBefore } from 'date-fns';
-import { PlantProps, savePlant } from '../libs/strorage';
+import { PlantProps, savePlant } from '../libs/storage';
 
 import { Button } from '../components/Button';
 

@@ -14,7 +14,7 @@ import { PrimaryPlantCard } from '../components/PrimaryPlantCard';
 import { Load } from '../components/Load';
 
 import { useNavigation } from '@react-navigation/native';
-import { PlantProps } from '../libs/strorage';
+import { PlantProps } from '../libs/storage';
 
 import api from '../services/api';
 

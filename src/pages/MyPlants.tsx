@@ -4,7 +4,7 @@ import { StyleSheet, View, Text, Image, FlatList } from 'react-native';
 import { Header } from '../components/Header';
 import { SecondaryPlantCard } from '../components/SecondaryPlantCard';
 
-import { loadPlant, PlantProps } from '../libs/strorage';
+import { loadPlant, PlantProps } from '../libs/storage';
 import { formatDistance } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 
@@ -54,7 +54,7 @@ export function MyPlants() {
 					keyExtractor={(item) => String(item.id)}
 					renderItem={({ item }) => <SecondaryPlantCard data={item} />}
 					showsVerticalScrollIndicator={false}
-					contentContainerStyle={{ flex: 1 }}
+					contentContainerStyle={{ flexGrow: 1 }}
 				/>
 			</View>
 		</View>
