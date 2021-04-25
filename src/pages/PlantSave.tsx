@@ -20,6 +20,7 @@ import { useRoute } from '@react-navigation/core';
 import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
 
 import { format, isBefore } from 'date-fns';
+import { PlantProps } from '../libs/strorage';
 
 import { Button } from '../components/Button';
 
@@ -30,35 +31,22 @@ import fonts from '../styles/fonts';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 interface Params {
-	plant: {
-		id: string;
-		name: string;
-		about: string;
-		water_tips: string;
-		photo: string;
-		environments: [string];
-		frequency: {
-			times: number;
-			repeat_every: string;
-		};
-	};
+	plant: PlantProps;
 }
 
 export function PlantSave() {
-	const [selectedDateTime, setSelectedDateTime] = useState(new Date()); //typing as Date
+	const [selectedDateTime, setSelectedDateTime] = useState(new Date());
 	const [showDatePicker, setShowDatePicker] = useState(Platform.OS === 'ios');
 
 	const route = useRoute();
 
 	const { plant } = route.params as Params;
-	//_ = underscore signal means parameter omission
+
 	function handleChangeTime(event: Event, dateTime: Date | undefined) {
-		//if android, change old state to inverse value
 		if (Platform.OS === 'android') {
 			setShowDatePicker((oldState) => !oldState);
 		}
 
-		// if dateTime is not null and is older than new Date
 		if (dateTime && isBefore(dateTime, new Date())) {
 			setSelectedDateTime(new Date());
 			return Alert.alert('Escolha um hora no futuro! ⏰');
