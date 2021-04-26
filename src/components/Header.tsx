@@ -12,9 +12,7 @@ export function Header() {
 
 	useEffect(() => {
 		async function loadStorageUserName() {
-			//get a stored item and returns a promise (async function)
 			const user = await AsyncStorage.getItem('@plantmanager:user');
-			//if it's not empty move on, else return empty
 			setUserName(user || '');
 		}
 		loadStorageUserName();

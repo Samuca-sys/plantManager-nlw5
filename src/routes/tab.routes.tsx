@@ -1,6 +1,8 @@
 import React from 'react';
+import { Platform } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import { isIphoneSE } from 'react-native-iphone-se-helper';
 import { MaterialIcons } from '@expo/vector-icons';
 
 import { PlantSelect } from '../pages/PlantSelect';
@@ -17,8 +19,8 @@ const AuthRoutes = () => {
 				inactiveTintColor: colors.heading,
 				labelPosition: 'beside-icon',
 				style: {
-					paddingVertical: 20,
-					height: 88,
+					paddingVertical: Platform.OS === 'ios' ? (!isIphoneSE ? 20 : 0) : 0,
+					height: !isIphoneSE ? 88 : 60,
 				},
 			}}
 		>
