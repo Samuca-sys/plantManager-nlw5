@@ -80,7 +80,10 @@ export function PlantSave() {
 	}
 
 	return (
-		<ScrollView showsVerticalScrollIndicator={false}>
+		<ScrollView
+			showsVerticalScrollIndicator={false}
+			contentContainerStyle={styles.container}
+		>
 			<View style={styles.container}>
 				<View style={styles.plantInfo}>
 					<SvgFromUri uri={plant.photo} height={150} width={150} />
